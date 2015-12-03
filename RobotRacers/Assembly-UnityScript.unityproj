@@ -6,10 +6,10 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{F61BAEA0-6CBF-0C79-0004-1829AD1A4E1B}</ProjectGuid>
+	<ProjectGuid>{ED596DA3-3860-60D8-A19E-B63CDA34E355}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -45,13 +45,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Robot Racers\Scripts\ButtonNextShip.cs" />
-     <Compile Include="Assets\Robot Racers\Scripts\ExitB.cs" />
-     <Compile Include="Assets\Robot Racers\Scripts\HoverCarControl.cs" />
-     <Compile Include="Assets\Robot Racers\Scripts\LoadLevel.cs" />
-     <Compile Include="Assets\Robot Racers\Scripts\TargetFollow.cs" />
-     <Compile Include="Assets\Robot Racers\Scripts\options\LoadOptions.cs" />
-     <Compile Include="Assets\Robot Racers\Scripts\options\SaveOptions.cs" />
+     <Compile Include="Assets\HoverCar\HoverCar\HoverCarExtras\HoverAdvancedControls.js" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
