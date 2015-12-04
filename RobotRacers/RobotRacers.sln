@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{03B6905C-8EFD-DF4F-A7F6-4F9BB06AA8E4}") = "RobotRacers", "Assembly-CSharp.csproj", "{F61BAEA0-6CBF-0C79-0004-1829AD1A4E1B}"
 EndProject
-Project("{03B6905C-8EFD-DF4F-A7F6-4F9BB06AA8E4}") = "RobotRacers", "Assembly-UnityScript.unityproj", "{ED596DA3-3860-60D8-A19E-B63CDA34E355}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,15 +13,11 @@ Global
 		{F61BAEA0-6CBF-0C79-0004-1829AD1A4E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F61BAEA0-6CBF-0C79-0004-1829AD1A4E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F61BAEA0-6CBF-0C79-0004-1829AD1A4E1B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED596DA3-3860-60D8-A19E-B63CDA34E355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED596DA3-3860-60D8-A19E-B63CDA34E355}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED596DA3-3860-60D8-A19E-B63CDA34E355}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED596DA3-3860-60D8-A19E-B63CDA34E355}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																												GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

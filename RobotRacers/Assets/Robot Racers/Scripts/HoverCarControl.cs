@@ -28,8 +28,6 @@ public class HoverCarControl : MonoBehaviour
   public GameObject RightBreak;
 	//Break Right GameObject
 
-	public bool pc;
-
   int m_layerMask;
 
   void Start()
