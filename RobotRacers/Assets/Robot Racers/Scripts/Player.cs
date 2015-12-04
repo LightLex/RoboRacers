@@ -17,8 +17,6 @@ public class Player : MonoBehaviour {
 	private int range = 25;
 	private float timert = 5;
 
-	float counttime = 0;
-
 	public bool ready=false;
 
 	public GameObject[] child;
@@ -50,7 +48,7 @@ public class Player : MonoBehaviour {
 	void Update () {
 
 		if (count == 0) {
-			range = 20;
+			range = 25;
 		} else {
 			range = 40;
 		}
