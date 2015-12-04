@@ -45,7 +45,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\HoverCar\HoverCar\HoverCarExtras\HoverAdvancedControls.js" />
+     <Compile Include="Assets\Robot Racers\Scripts\Scripts\AICar_Script.js" />
+     <Compile Include="Assets\Robot Racers\Scripts\Scripts\Antiroll_Bar.js" />
+     <Compile Include="Assets\Robot Racers\Scripts\Scripts\BrakeZone.js" />
+     <Compile Include="Assets\Robot Racers\Scripts\Scripts\PlayerCar.js" />
+     <Compile Include="Assets\Robot Racers\Scripts\Scripts\SimpleVelocityLimiter.js" />
+     <Compile Include="Assets\Robot Racers\Scripts\Scripts\WayPoint.js" />
+     <Compile Include="Assets\Robot Racers\Scripts\Scripts\WheelAlignScript.js" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

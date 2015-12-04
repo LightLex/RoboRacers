@@ -45,10 +45,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Robot Racers\Scripts\AICar.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\ButtonNextShip.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\ExitB.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\HoverCarControl.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\LoadLevel.cs" />
+     <Compile Include="Assets\Robot Racers\Scripts\Player.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\TargetFollow.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\options\LoadOptions.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\options\SaveOptions.cs" />
