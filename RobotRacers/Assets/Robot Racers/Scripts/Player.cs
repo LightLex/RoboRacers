@@ -6,7 +6,6 @@ public class Player : MonoBehaviour {
 	public Text speed;
 	public Text laps;
 	public Text timer;
-	public Text GameTimer;
 
 	public Transform[] beacon;
 	public Transform direction;
@@ -15,21 +14,46 @@ public class Player : MonoBehaviour {
 
 	private int count=0;
 	private int Vueltas=0;
-	private int range = 20;
+	private int range = 25;
 	private float timert = 5;
 
 	float counttime = 0;
 
 	public bool ready=false;
 
+	public GameObject[] child;
+
+
+	public GameObject scoreP;
 	
 	void Start () {
 		m_body = GetComponent<Rigidbody>();
 		timert = 5;
 
+		int num = Random.Range(0, 4);
+
+		child[num].SetActive(true);
+		
+
+	}
+
+	void funcion(){
+		if (timert > 0) {
+			timert -= Time.deltaTime;
+			timer.text = "" + (int)timert;
+		} else {
+			timer.enabled = false;
+			ready = true;
+		}
 	}
 
 	void Update () {
+
+		if (count == 0) {
+			range = 20;
+		} else {
+			range = 40;
+		}
 
 			if(Vector3.Distance(beacon[count].transform.position,m_body.transform.position)<=range){
 				if(count==0){
@@ -44,24 +68,18 @@ public class Player : MonoBehaviour {
 					
 			}
 
-		if (timert > 0) {
-			timert -= Time.deltaTime;
-			timer.text = ""+ (int) timert;
-		} else {
-			timer.enabled=false;
-			ready=true;
-			counttime+=Time.deltaTime;
-			GameTimer.text = "Time: "+(int) counttime;
-		}
-
-
+		if (ready == true) {
 			speed.text = (int) m_body.velocity.magnitude + "km/h";
 			laps.text = "Vueltas: " + Vueltas;
+		} else {
+			funcion ();
+		}
 
 			direction.LookAt(beacon[count]);
 
 			if (Vueltas == 4) {
-				Application.LoadLevel (0);
+				ready=false;
+				scoreP.SetActive(true);
 			}
 
 	}

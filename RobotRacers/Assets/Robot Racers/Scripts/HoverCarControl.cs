@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class HoverCarControl : MonoBehaviour
@@ -26,12 +27,19 @@ public class HoverCarControl : MonoBehaviour
   public GameObject LeftBreak;
 	//Break Left GameObject
   public GameObject RightBreak;
+
+	public GameObject pausemenu;
 	//Break Right GameObject
 
 	Player pscript;
   	int m_layerMask;
 
 	bool ready = false;
+	private bool pause = false;
+
+	float counttime = 0;
+	public Text GameTimer;
+	public Text scoreT;
 
   void Start()
   {
@@ -41,14 +49,25 @@ public class HoverCarControl : MonoBehaviour
     m_layerMask = ~m_layerMask;
   }
 
+	void Update(){
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			if(pause==false){
+				pause=true;
+				pausemenu.SetActive(true);
+			}else{
+				pause=false;
+				pausemenu.SetActive(false);
+			}
+		}
+	}
+
   void FixedUpdate()
   {
 		ready = pscript.ready;
 
-		
 			// Main Thrust
 			m_currThrust = 0.0f;
-			if (ready == true) {
+			if (ready == true && pause == false) {
 			float aclAxis = Input.GetAxis ("Vertical");
 			if (aclAxis > m_deadZone)
 				m_currThrust = aclAxis * m_forwardAcl;
@@ -59,6 +78,11 @@ public class HoverCarControl : MonoBehaviour
 			float turnAxis = Input.GetAxis ("Horizontal");
 			if (Mathf.Abs (turnAxis) > m_deadZone)
 				CurrentTurnAngle = turnAxis;
+
+			
+			counttime += Time.deltaTime;
+			GameTimer.text = "Time: " + (int)counttime;
+			scoreT.text = "Tiempo total: " + (int)counttime;
 			}
 			//  Hover Force
 			RaycastHit hit;
