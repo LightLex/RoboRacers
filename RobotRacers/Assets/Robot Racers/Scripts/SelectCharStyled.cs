@@ -15,11 +15,9 @@ public class SelectCharStyled : MonoBehaviour {
 	public Transform markerLeft;
 	// The middle marker of visible scence
 	public Transform markerMiddle;
-	// The right marker of visible scence
+	// The Right marker of visible scence
 	public Transform markerRight;
-	// The right marker out of visible scence
-	public Transform markerRight2;
-	
+
 	// The characters prefabs to pick
 	public Transform[] charsPrefabs;
 	// An aux array to be used on ShowSelectedChar.cs
@@ -69,7 +67,13 @@ public class SelectCharStyled : MonoBehaviour {
 		GUI.Label(new Rect((Screen.width - 200) / 2, 20, 200, 50), labelChar);
 		
 		if (GUI.Button(new Rect((Screen.width - 100) / 2, Screen.height - 70, 100, 50), "Elegir")) {
-			//Application.LoadLevel("main-styled-selected-char");
+			UserGameStatus statusGame = new UserGameStatus();
+			statusGame.botId = currentChar;
+			statusGame.botName = selectedChar.name;
+			Controller.setUserGameStatus(statusGame);
+
+			// Se debe cargar la pantalla de elegir mapa antes.
+			Application.LoadLevel("Mapa1");
 		}
 
 		if (GUI.Button(new Rect(10, Screen.height - 70, 100, 50), "Volver")) {
@@ -93,7 +97,7 @@ public class SelectCharStyled : MonoBehaviour {
 				
 			// If the index is less than right index, the character will dissapear in the right side
 			} else if (index > rightIndex) {
-				transf.position = Vector3.Lerp(transf.position, markerMiddle.position, Time.deltaTime);
+				transf.position = Vector3.Lerp(transf.position, markerRight.position, Time.deltaTime);
 				
 			// If the index is equals to left index, the character will move to the left visible marker
 			} else if (index == leftIndex) {
@@ -105,7 +109,7 @@ public class SelectCharStyled : MonoBehaviour {
 				
 			// If the index is equals to right index, the character will move to the right visible marker
 			} else if (index == rightIndex) {
-				transf.position = Vector3.Lerp(transf.position, markerLeft.position, Time.deltaTime);
+				transf.position = Vector3.Lerp(transf.position, markerRight.position, Time.deltaTime);
 			}
 		}
 	}

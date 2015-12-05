@@ -28,10 +28,17 @@ public class Player : MonoBehaviour {
 		m_body = GetComponent<Rigidbody>();
 		timert = 5;
 
-		int num = Random.Range(0, 4);
+		/**
+		 * Cargar el id del robot guardado en la seleccion.
+		 * Si no existe el archivo de guardado regresar a la pantalla de eleccion del robot.
+		 */
+		UserGameStatus statusGame = Controller.getUserGameStatus ();
+		if (statusGame != null) {
+			child [statusGame.botId].SetActive (true);
+		} else {
+			Application.LoadLevel(1);
+		}
 
-		child[num].SetActive(true);
-		
 
 	}
 
