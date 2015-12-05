@@ -53,7 +53,11 @@ public class HoverCarControl : MonoBehaviour
     m_layerMask = 1 << LayerMask.NameToLayer("Characters");
     m_layerMask = ~m_layerMask;
 
-		adelante = KeyCode.W;
+		string tecla = "W";
+		KeyCode teclakey = (KeyCode)System.Enum.Parse(typeof(KeyCode), tecla) ;
+
+
+		adelante = teclakey;
 		atras = KeyCode.S;
 		izquierda = KeyCode.A;
 		derecha = KeyCode.D;
