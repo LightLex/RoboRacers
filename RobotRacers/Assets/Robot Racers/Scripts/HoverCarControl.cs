@@ -34,6 +34,11 @@ public class HoverCarControl : MonoBehaviour
 	Player pscript;
   	int m_layerMask;
 
+	private KeyCode adelante;
+	private KeyCode atras;
+	private KeyCode izquierda;
+	private KeyCode derecha;
+
 	bool ready = false;
 	private bool pause = false;
 
@@ -48,7 +53,10 @@ public class HoverCarControl : MonoBehaviour
     m_layerMask = 1 << LayerMask.NameToLayer("Characters");
     m_layerMask = ~m_layerMask;
 
-
+		adelante = KeyCode.W;
+		atras = KeyCode.S;
+		izquierda = KeyCode.A;
+		derecha = KeyCode.D;
   }
 
 	void Update(){
@@ -73,14 +81,28 @@ public class HoverCarControl : MonoBehaviour
 			// Main Thrust
 			m_currThrust = 0.0f;
 			if (ready == true && pause == false) {
-			float aclAxis = Input.GetAxis ("Vertical");
+			float aclAxis=0;
+			if(Input.GetKey(adelante) || Input.GetKey(KeyCode.UpArrow)){
+				aclAxis = 1;
+			}
+			if(Input.GetKey(atras) || Input.GetKey(KeyCode.DownArrow)){
+				aclAxis = -1;
+			}
+			//float aclAxis = Input.GetAxis ("Vertical");
 			if (aclAxis > m_deadZone)
 				m_currThrust = aclAxis * m_forwardAcl;
 			else if (aclAxis < -m_deadZone)
 				m_currThrust = aclAxis * m_backwardAcl;
 			// Turning
 			CurrentTurnAngle = 0.0f;
-			float turnAxis = Input.GetAxis ("Horizontal");
+			float turnAxis = 0;
+			if(Input.GetKey(izquierda) || Input.GetKey(KeyCode.LeftArrow)){
+				turnAxis = -1;
+			}
+			if(Input.GetKey(derecha) || Input.GetKey(KeyCode.RightArrow)){
+				turnAxis = 1;
+			}
+			//float turnAxis = Input.GetAxis ("Horizontal");
 			if (Mathf.Abs (turnAxis) > m_deadZone)
 				CurrentTurnAngle = turnAxis;
 
