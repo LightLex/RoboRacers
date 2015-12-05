@@ -14,13 +14,13 @@ public class HoverCarControl : MonoBehaviour
 	//Height of hover
   public GameObject[] HoverPointsGameObjects;
 	//Points where hover will push down
-  public float m_forwardAcl = 100.0f;
+  private float m_forwardAcl;
 	//Foward Acceleation of car
   public float m_backwardAcl = 25.0f;
 	//Backwords/reverse Acceleration of car
   float m_currThrust = 0.0f;
 	//Do not modify! Current speed
-  public float m_turnStrength = 10f;
+  private float m_turnStrength;
 	//Strength of the turn
   float CurrentTurnAngle = 0.0f;
 	//Current Turn Rotation
@@ -47,6 +47,8 @@ public class HoverCarControl : MonoBehaviour
 		pscript = GetComponent<Player> ();
     m_layerMask = 1 << LayerMask.NameToLayer("Characters");
     m_layerMask = ~m_layerMask;
+
+
   }
 
 	void Update(){
@@ -64,6 +66,9 @@ public class HoverCarControl : MonoBehaviour
   void FixedUpdate()
   {
 		ready = pscript.ready;
+		m_forwardAcl = pscript.fuerza;
+		m_turnStrength = pscript.vuelta;
+
 
 			// Main Thrust
 			m_currThrust = 0.0f;

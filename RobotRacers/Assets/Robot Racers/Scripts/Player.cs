@@ -7,6 +7,9 @@ public class Player : MonoBehaviour {
 	public Text laps;
 	public Text timer;
 
+	public int fuerza = 15000;
+	public int vuelta = 5500;
+
 	public Transform[] beacon;
 	public Transform direction;
 
