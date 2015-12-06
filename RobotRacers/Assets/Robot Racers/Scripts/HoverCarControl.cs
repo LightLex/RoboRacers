@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -53,14 +56,25 @@ public class HoverCarControl : MonoBehaviour
     m_layerMask = 1 << LayerMask.NameToLayer("Characters");
     m_layerMask = ~m_layerMask;
 
-		string tecla = "W";
-		KeyCode teclakey = (KeyCode)System.Enum.Parse(typeof(KeyCode), tecla) ;
-
-
-		adelante = teclakey;
-		atras = KeyCode.S;
-		izquierda = KeyCode.A;
-		derecha = KeyCode.D;
+		// Get the user configuration Control keys.
+		string lc = "A";
+		string rc = "D";
+		string uc = "W";
+		string dc = "S";
+		if (File.Exists (Application.persistentDataPath + "/playerSettings.dat")) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (Application.persistentDataPath + "/playerSettings.dat", FileMode.Open);
+			PlayerOptions options = (PlayerOptions)bf.Deserialize(file);
+			file.Close();
+			lc = options.leftControl;
+			rc = options.rightControl;
+			uc = options.upControl;
+			dc = options.downControl;
+		}
+		adelante = (KeyCode)System.Enum.Parse(typeof(KeyCode), uc) ;
+		atras = (KeyCode)System.Enum.Parse(typeof(KeyCode), dc) ;
+		derecha = (KeyCode)System.Enum.Parse(typeof(KeyCode), rc) ;
+		izquierda = (KeyCode)System.Enum.Parse(typeof(KeyCode), lc) ;
   }
 
 	void Update(){

@@ -6,11 +6,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
 public class SaveOptions : MonoBehaviour {
+	InputField leftControl;
+	InputField rightControl;
+	InputField upControl;
+	InputField downControl;
+
 	public void save() {
-		InputField leftControl = GameObject.Find ("configControlLeft").GetComponent<InputField> ();
-		InputField rightControl = GameObject.Find ("configControlRight").GetComponent<InputField> ();
-		InputField upControl = GameObject.Find ("configControlUP").GetComponent<InputField> ();
-		InputField downControl = GameObject.Find ("configControlDown").GetComponent<InputField> ();
 		Toggle sound = GameObject.Find ("ToggleSonidos").GetComponent<Toggle> ();
 
 		BinaryFormatter bf = new BinaryFormatter ();
@@ -29,5 +30,26 @@ public class SaveOptions : MonoBehaviour {
 		bf.Serialize (file, options);
 		file.Close ();
 		print ("Se han guardado la opciones");
+	}
+
+	void Awake () {
+		leftControl = GameObject.Find ("configControlLeft").GetComponent<InputField> ();
+		rightControl = GameObject.Find ("configControlRight").GetComponent<InputField> ();
+		upControl = GameObject.Find ("configControlUP").GetComponent<InputField> ();
+		downControl = GameObject.Find ("configControlDown").GetComponent<InputField> ();
+
+		// Sets the ToUpperCase function to each element.
+		leftControl.onValueChange.AddListener( delegate { ToUpperCase(leftControl); } );
+		rightControl.onValueChange.AddListener( delegate { ToUpperCase(rightControl); } );
+		upControl.onValueChange.AddListener( delegate { ToUpperCase(upControl); } );
+		downControl.onValueChange.AddListener( delegate { ToUpperCase(downControl); } );
+	}
+
+	void ToUpperCase(InputField field) {
+		string text = field.text;
+		if(text != field.text.ToUpper())
+		{
+			field.text = field.text.ToUpper();
+		}
 	}
 }
