@@ -35,6 +35,8 @@ public class Controller : MonoBehaviour {
 public class UserGameStatus{
 	public int botId;
 	public string botName;
+	public int botFuerza;
+	public int botVuelta;
 	public int mapId;
 	public string score;
 }

@@ -69,6 +69,12 @@ public class SelectCharStyled : MonoBehaviour {
 		if (GUI.Button(new Rect((Screen.width - 100) / 2, Screen.height - 70, 100, 50), "Elegir")) {
 			UserGameStatus statusGame = new UserGameStatus();
 			statusGame.botId = currentChar;
+			switch(currentChar){
+			case 0: statusGame.botFuerza=15500; statusGame.botVuelta=5500;break;
+			case 1: statusGame.botFuerza=16500; statusGame.botVuelta=5000;break;
+			case 2: statusGame.botFuerza=14000; statusGame.botVuelta=5500;break;
+			case 3: statusGame.botFuerza=16000; statusGame.botVuelta=6000;break;
+			}
 			statusGame.botName = selectedChar.name;
 			Controller.setUserGameStatus(statusGame);
 

@@ -38,6 +38,8 @@ public class Player : MonoBehaviour {
 		UserGameStatus statusGame = Controller.getUserGameStatus ();
 		if (statusGame != null) {
 			child [statusGame.botId].SetActive (true);
+			fuerza = statusGame.botFuerza;
+			vuelta = statusGame.botVuelta;
 		} else {
 			Application.LoadLevel(1);
 		}
