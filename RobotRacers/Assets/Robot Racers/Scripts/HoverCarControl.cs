@@ -100,13 +100,15 @@ public class HoverCarControl : MonoBehaviour
 			m_currThrust = 0.0f;
 			if (ready == true && pause == false) {
 			float aclAxis=0;
+
 			if(Input.GetKey(adelante) || Input.GetKey(KeyCode.UpArrow)){
 				aclAxis = 1;
-			}
-			if(Input.GetKey(atras) || Input.GetKey(KeyCode.DownArrow)){
-				aclAxis = -1;
-			}
-			//float aclAxis = Input.GetAxis ("Vertical");
+			}else
+				if(Input.GetKey(atras) || Input.GetKey(KeyCode.DownArrow)){
+					aclAxis = -1;
+				}else
+					aclAxis = Input.GetAxis ("Vertical");
+
 			if (aclAxis > m_deadZone)
 				m_currThrust = aclAxis * m_forwardAcl;
 			else if (aclAxis < -m_deadZone)
@@ -114,13 +116,15 @@ public class HoverCarControl : MonoBehaviour
 			// Turning
 			CurrentTurnAngle = 0.0f;
 			float turnAxis = 0;
+
 			if(Input.GetKey(izquierda) || Input.GetKey(KeyCode.LeftArrow)){
 				turnAxis = -1;
-			}
-			if(Input.GetKey(derecha) || Input.GetKey(KeyCode.RightArrow)){
-				turnAxis = 1;
-			}
-			//float turnAxis = Input.GetAxis ("Horizontal");
+			}else
+				if(Input.GetKey(derecha) || Input.GetKey(KeyCode.RightArrow)){
+					turnAxis = 1;
+				}else
+					turnAxis = Input.GetAxis ("Horizontal");
+
 			if (Mathf.Abs (turnAxis) > m_deadZone)
 				CurrentTurnAngle = turnAxis;
 
