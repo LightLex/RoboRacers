@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class CarAudio : MonoBehaviour {
 		
@@ -14,6 +17,15 @@ public class CarAudio : MonoBehaviour {
 		void Awake () 
 		{
 			carRigidbody = GetComponent<Rigidbody>();
+
+			if (File.Exists (Application.persistentDataPath + "/playerSettings.dat")) {
+				BinaryFormatter bf = new BinaryFormatter ();
+				FileStream file = File.Open (Application.persistentDataPath + "/playerSettings.dat", FileMode.Open);
+				PlayerOptions options = (PlayerOptions)bf.Deserialize(file);
+				file.Close();
+			jetSound.mute = options.sound;
+			}
+
 		}
 		
 		private void FixedUpdate()
