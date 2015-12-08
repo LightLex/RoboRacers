@@ -52,6 +52,7 @@
      <Compile Include="Assets\Robot Racers\Scripts\LoadLevel.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\Player.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\SelectCharStyled.cs" />
+     <Compile Include="Assets\Robot Racers\Scripts\SelectMap.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\SoundOn.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\TargetFollow.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\options\LoadOptions.cs" />

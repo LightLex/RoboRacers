@@ -80,11 +80,11 @@ public class SelectCharStyled : MonoBehaviour {
 			statusGame.botName = selectedChar.name;
 			Controller.setUserGameStatus(statusGame);
 
-			Application.LoadLevel("NewGame-SelectMap");
+			Application.LoadLevel(3);
 		}
 
 		if (GUI.Button(new Rect(10, Screen.height - 70, 100, 50), "Volver")) {
-			Application.LoadLevel("Menu-main");
+			Application.LoadLevel(0);
 		}
 		
 		// The index of the middle character

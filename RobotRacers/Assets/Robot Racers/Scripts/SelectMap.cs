@@ -14,16 +14,16 @@ public class SelectMap : MonoBehaviour {
 	}
 
 	public void goBack() {
-		Application.LoadLevel ("NewGame-menu");
+		Application.LoadLevel (1);
 	}
 
 	public void selectMap () {
 		start.enabled = true;
 		if (gameObject.name == "map1") {
-			mapid = 3;
+			mapid = 4;
 		}
 		else if (gameObject.name == "map2") {
-			mapid = 4;
+			mapid = 5;
 		}
 	}
 
