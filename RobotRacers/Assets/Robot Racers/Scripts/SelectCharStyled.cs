@@ -28,6 +28,8 @@ public class SelectCharStyled : MonoBehaviour {
 	
 	// The index of the current character
 	public static int currentChar = 0;
+
+	public static UserGameStatus statusGame;
 	
 	void Start() {
 		charsPrefabsAux = charsPrefabs;
@@ -67,7 +69,7 @@ public class SelectCharStyled : MonoBehaviour {
 		GUI.Label(new Rect((Screen.width - 200) / 2, 20, 200, 50), labelChar);
 		
 		if (GUI.Button(new Rect((Screen.width - 100) / 2, Screen.height - 70, 100, 50), "Elegir")) {
-			UserGameStatus statusGame = new UserGameStatus();
+			statusGame = new UserGameStatus();
 			statusGame.botId = currentChar;
 			switch(currentChar){
 			case 0: statusGame.botFuerza=15500; statusGame.botVuelta=5500;break;
@@ -78,8 +80,7 @@ public class SelectCharStyled : MonoBehaviour {
 			statusGame.botName = selectedChar.name;
 			Controller.setUserGameStatus(statusGame);
 
-			// Se debe cargar la pantalla de elegir mapa antes.
-			Application.LoadLevel("Mapa1");
+			Application.LoadLevel("NewGame-SelectMap");
 		}
 
 		if (GUI.Button(new Rect(10, Screen.height - 70, 100, 50), "Volver")) {
