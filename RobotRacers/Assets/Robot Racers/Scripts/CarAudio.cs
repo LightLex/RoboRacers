@@ -11,7 +11,6 @@ public class CarAudio : MonoBehaviour {
 		private const float LowPitch = .1f;
 		private const float HighPitch = 2.0f;
 		private const float SpeedToRevs = .01f;
-		Vector3 myVelocity;
 		Rigidbody carRigidbody;
 		
 		void Awake () 
@@ -30,7 +29,7 @@ public class CarAudio : MonoBehaviour {
 		
 		private void FixedUpdate()
 		{
-			myVelocity = carRigidbody.velocity;
+			//Vector3 myVelocity = carRigidbody.velocity;
 			float forwardSpeed = transform.InverseTransformDirection(carRigidbody.velocity).z;
 			float engineRevs = Mathf.Abs (forwardSpeed) * SpeedToRevs;
 			jetSound.pitch = Mathf.Clamp (engineRevs, LowPitch, HighPitch);
