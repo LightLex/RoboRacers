@@ -32,18 +32,23 @@ public class SelectCharStyled : MonoBehaviour {
 	public static UserGameStatus statusGame;
 	
 	void Start() {
-
-		// Reset the user game status.
-		Controller.resetGameStatus ();
+		int bots = 2;
+		UserGameStatus status = Controller.getUserGameStatus ();
+		if (status.gameSaved) {
+			if (status.score >= 100) bots = 3;
+			if (status.score >= 200) bots = 4;
+		}
 
 		charsPrefabsAux = charsPrefabs;
 		// We initialize the chars array
-		chars = new GameObject[charsPrefabs.Length];
+		chars = new GameObject[bots];
 		
 		// We create game objects based on characters prefabs
 		int index = 0;
 		foreach (Transform t in charsPrefabs) {
-			chars[index++] = GameObject.Instantiate(t.gameObject, markerMiddle.position, Quaternion.identity) as GameObject;
+			if (index < bots){
+				chars[index++] = GameObject.Instantiate(t.gameObject, markerMiddle.position, Quaternion.identity) as GameObject;
+			}
 		}
 	}
 	
