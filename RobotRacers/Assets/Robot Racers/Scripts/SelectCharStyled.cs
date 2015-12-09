@@ -87,8 +87,6 @@ public class SelectCharStyled : MonoBehaviour {
 			case 3: statusGame.botFuerza=16000; statusGame.botVuelta=6000;break;
 			}
 			statusGame.botName = selectedChar.name;
-			statusGame.time1 = 150;
-			statusGame.time2 = 150;
 			Controller.setUserGameStatus(statusGame);
 
 			Application.LoadLevel(3);
