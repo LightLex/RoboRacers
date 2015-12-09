@@ -88,6 +88,15 @@ public class Player : MonoBehaviour {
 			direction.LookAt(beacon[count]);
 
 			if (Vueltas == 4) {
+				int Score = 200 - (int) HoverCarControl.counttime;
+				SelectCharStyled.statusGame.score += Score;
+				if(SelectCharStyled.statusGame.mapId==4){
+					SelectCharStyled.statusGame.mapId=5;
+				}else{
+					SelectCharStyled.statusGame.mapId=4;
+				}
+				Controller.setUserGameStatus(SelectCharStyled.statusGame);
+				
 				ready=false;
 				scoreP.SetActive(true);
 			}

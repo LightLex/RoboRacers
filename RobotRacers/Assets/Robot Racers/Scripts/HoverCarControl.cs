@@ -45,12 +45,13 @@ public class HoverCarControl : MonoBehaviour
 	bool ready = false;
 	private bool pause = false;
 
-	float counttime = 0;
+	public static float counttime = 0;
 	public Text GameTimer;
 	public Text scoreT;
 
   void Start()
   {
+		counttime = 0;
     m_body = GetComponent<Rigidbody>();
 		pscript = GetComponent<Player> ();
     m_layerMask = 1 << LayerMask.NameToLayer("Characters");
@@ -131,7 +132,7 @@ public class HoverCarControl : MonoBehaviour
 			
 			counttime += Time.deltaTime;
 			GameTimer.text = "Time: " + (int)counttime;
-			scoreT.text = "Tiempo total: " + (int)counttime;
+			scoreT.text = "Puntos obtenidos: " + (200 - (int)counttime);
 			}
 			//  Hover Force
 			RaycastHit hit;

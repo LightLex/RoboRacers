@@ -38,5 +38,5 @@ public class UserGameStatus{
 	public int botFuerza;
 	public int botVuelta;
 	public int mapId;
-	public string score;
+	public int score;
 }
