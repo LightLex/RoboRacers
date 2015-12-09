@@ -22,6 +22,8 @@ public class Player : MonoBehaviour {
 
 	public bool ready=false;
 
+	private bool finish = false;
+
 	public GameObject[] child;
 
 
@@ -30,6 +32,7 @@ public class Player : MonoBehaviour {
 	void Start () {
 		m_body = GetComponent<Rigidbody>();
 		timert = 5;
+		finish = false;
 
 		/**
 		 * Cargar el id del robot guardado en la seleccion.
@@ -87,20 +90,27 @@ public class Player : MonoBehaviour {
 
 			direction.LookAt(beacon[count]);
 
-			if (Vueltas == 4) {
+			if (Vueltas == 4 ) {
+			if(finish==false){
 				int Score = 200 - (int) HoverCarControl.counttime;
 				
+				
 				SelectCharStyled.statusGame.score += Score;
-			if(ready==true){
-				if(SelectCharStyled.statusGame.mapId==4){
-					SelectCharStyled.statusGame.mapId=5;
-				}else{
-					SelectCharStyled.statusGame.mapId=4;
-				}
+				Debug.Log(SelectCharStyled.statusGame.mapId);
+				switch(SelectCharStyled.statusGame.mapId){
+						case 4:	if(SelectCharStyled.statusGame.time1 == 0 || SelectCharStyled.statusGame.time1 > (int) HoverCarControl.counttime){
+									SelectCharStyled.statusGame.time1 = (int) HoverCarControl.counttime;
+									}
+								SelectCharStyled.statusGame.mapId=5;break;
+						case 5:	if(SelectCharStyled.statusGame.time2 == 0 || SelectCharStyled.statusGame.time2 > (int) HoverCarControl.counttime){
+									SelectCharStyled.statusGame.time2 = (int) HoverCarControl.counttime;
+									}
+					SelectCharStyled.statusGame.mapId=4;break;
+				};
+				Controller.setUserGameStatus(SelectCharStyled.statusGame);
 			}
 				ready=false;
-				Controller.setUserGameStatus(SelectCharStyled.statusGame);
-				
+				finish=true;
 				
 				scoreP.SetActive(true);
 			}

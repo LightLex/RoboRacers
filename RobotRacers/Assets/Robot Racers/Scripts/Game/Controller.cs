@@ -53,4 +53,6 @@ public class UserGameStatus{
 	public int botVuelta;
 	public int mapId;
 	public int score;
+	public int time1;
+	public int time2;
 }

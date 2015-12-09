@@ -51,6 +51,7 @@
      <Compile Include="Assets\Robot Racers\Scripts\HoverCarControl.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\LoadLevel.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\Player.cs" />
+     <Compile Include="Assets\Robot Racers\Scripts\RecordsPanel.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\SelectCharStyled.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\SelectMap.cs" />
      <Compile Include="Assets\Robot Racers\Scripts\SoundOn.cs" />
