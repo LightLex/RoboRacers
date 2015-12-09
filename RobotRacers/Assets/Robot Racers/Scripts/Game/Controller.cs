@@ -36,6 +36,12 @@ public class Controller : MonoBehaviour {
 			return new UserGameStatus();
 		}
 	}
+
+	public static void resetGameStatus() {
+		if (File.Exists (Application.persistentDataPath + "/UserGameStatus.dat")) {
+			File.Delete(Application.persistentDataPath + "/UserGameStatus.dat");
+		}
+	}
 }
 
 [Serializable]

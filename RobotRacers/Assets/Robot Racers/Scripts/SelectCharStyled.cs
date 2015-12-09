@@ -32,6 +32,10 @@ public class SelectCharStyled : MonoBehaviour {
 	public static UserGameStatus statusGame;
 	
 	void Start() {
+
+		// Reset the user game status.
+		Controller.resetGameStatus ();
+
 		charsPrefabsAux = charsPrefabs;
 		// We initialize the chars array
 		chars = new GameObject[charsPrefabs.Length];

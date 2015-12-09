@@ -27,6 +27,8 @@ public class SelectMap : MonoBehaviour {
 	}
 
 	public void startGame() {
+		SelectCharStyled.statusGame.gameSaved = true;
+		Controller.setUserGameStatus (SelectCharStyled.statusGame);
 		Application.LoadLevel (SelectCharStyled.statusGame.mapId);
 	}
 }
