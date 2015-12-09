@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ExitB : MonoBehaviour {
 
+	//Fucnion para salir del juego
 	public void Quit () 
 	{
 		#if UNITY_EDITOR

@@ -7,13 +7,15 @@ using UnityEngine.UI;
 
 public class LoadOptions : MonoBehaviour {
 
-	// Use this for initialization
+	//Inicializando datos de los controles
 	void Start () {
 		string lc = "A";
 		string rc = "D";
 		string uc = "W";
 		string dc = "S";
 		bool ss = true;
+
+		//Cargar el archivo con los controles si existe
 		if (File.Exists (Application.persistentDataPath + "/playerSettings.dat")) {
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (Application.persistentDataPath + "/playerSettings.dat", FileMode.Open);
@@ -27,6 +29,7 @@ public class LoadOptions : MonoBehaviour {
 			ss = options.sound;
 		}
 
+		//Obteniendo datos de los objetos del juego
 		InputField leftControl = GameObject.Find ("configControlLeft").GetComponent<InputField> ();
 		InputField rightControl = GameObject.Find ("configControlRight").GetComponent<InputField> ();
 		InputField upControl = GameObject.Find ("configControlUP").GetComponent<InputField> ();
@@ -42,6 +45,8 @@ public class LoadOptions : MonoBehaviour {
 	}
 }
 
+
+//Datos serializados de los controles
 [Serializable]
 class PlayerOptions {
 	public string leftControl;

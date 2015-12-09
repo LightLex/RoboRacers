@@ -30,7 +30,8 @@ public class SelectCharStyled : MonoBehaviour {
 	public static int currentChar = 0;
 
 	public static UserGameStatus statusGame;
-	
+
+	//Funcion inicial de incializacion
 	void Start() {
 		int bots = 2;
 		UserGameStatus status = Controller.getUserGameStatus ();
@@ -43,7 +44,7 @@ public class SelectCharStyled : MonoBehaviour {
 		// We initialize the chars array
 		chars = new GameObject[bots];
 		
-		// We create game objects based on characters prefabs
+		//Leendo la lista de los robots
 		int index = 0;
 		foreach (Transform t in charsPrefabs) {
 			if (index < bots){
@@ -51,9 +52,10 @@ public class SelectCharStyled : MonoBehaviour {
 			}
 		}
 	}
-	
+
+	//Creando controles en la pantalla
 	void OnGUI() {
-		// Here we create a button to choose a next char
+		//Creando boton de robot anterior
 		if (GUI.Button(new Rect(10, (Screen.height - 50) / 2, 100, 50), "Anterior")) {
 			currentChar--;
 			
@@ -62,7 +64,7 @@ public class SelectCharStyled : MonoBehaviour {
 			}
 		}
 		
-		// Now we create a button to choose a previous char
+		// Creando boton del siguente robot
 		if (GUI.Button(new Rect(Screen.width - 100 - 10, (Screen.height - 50) / 2, 100, 50), "Siguiente")) {
 			currentChar++;
 			
@@ -71,7 +73,7 @@ public class SelectCharStyled : MonoBehaviour {
 			}
 		}
 		
-		// Shows a label with the name of the selected character
+		//Mostrando los modelos de robots
 		GUI.skin.label.alignment = TextAnchor.MiddleCenter;
 		GameObject selectedChar = chars[currentChar];
 		string labelChar = selectedChar.name;

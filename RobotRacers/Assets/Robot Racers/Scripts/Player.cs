@@ -4,6 +4,11 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
+	/*
+	 * Script auxiliar que cuenta las vueltas, muestra el contador reverso y guarda los valores al terminar la carrera
+	 * 
+	 * */
+
 	//Inicialisando paneles de texto
 	public Text speed;
 	public Text laps;

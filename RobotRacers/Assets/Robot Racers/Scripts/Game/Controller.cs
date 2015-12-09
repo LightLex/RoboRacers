@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Controller : MonoBehaviour {
 
-	// Use this for initialization
+	// Inicializando el controller para guardar los datos del juego
 	void Start () {
 		UserGameStatus ugstatus = getUserGameStatus ();
 		Button btnContinue = GameObject.Find("Continue").GetComponent<Button>();
@@ -18,13 +18,15 @@ public class Controller : MonoBehaviour {
 		}
 	}
 
+	//Funcion para guardar los datos durante el juego
 	public static void setUserGameStatus(UserGameStatus gameStatus) {
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Create (Application.persistentDataPath + "/UserGameStatus.dat");
 		bf.Serialize (file, gameStatus);
 		file.Close ();
 	}
-	
+
+	//Funcion para obtener los datos durante el juego
 	public static UserGameStatus getUserGameStatus() {
 		if (File.Exists (Application.persistentDataPath + "/UserGameStatus.dat")) {
 			BinaryFormatter bf = new BinaryFormatter ();
@@ -37,6 +39,8 @@ public class Controller : MonoBehaviour {
 		}
 	}
 
+
+	//Funcion para anular los datos a preterminados
 	public static void resetGameStatus() {
 		if (File.Exists (Application.persistentDataPath + "/UserGameStatus.dat")) {
 			File.Delete(Application.persistentDataPath + "/UserGameStatus.dat");
@@ -44,6 +48,7 @@ public class Controller : MonoBehaviour {
 	}
 }
 
+//Datos serializados que seran gravadas en el archivo
 [Serializable]
 public class UserGameStatus{
 	public bool gameSaved = false;

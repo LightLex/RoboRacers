@@ -8,6 +8,14 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 public class HoverCarControl : MonoBehaviour
 {
+
+	/*
+	 * Script que controla al robot.
+	 * Contiene los valores del mismo robot que se establesen al inicio de la carrera.
+	 * Hace flotar al robot y tiene todos los controles posibles guardadas para poder controlar al robot con teclado o un control.
+	 * 
+	 * */
+
 	//Objeto robot
   Rigidbody m_body;
   float m_deadZone = 0.1f;

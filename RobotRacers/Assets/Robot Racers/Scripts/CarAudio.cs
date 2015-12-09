@@ -6,6 +6,11 @@ using System.IO;
 
 public class CarAudio : MonoBehaviour {
 
+	/*
+	 * Script que mide la velocidad del objeto robot y varia el volumen dependiendo de la velocidad
+	 * 
+	 * */
+
 	//Inicializar los valores del sonido del motor
 		
 		public AudioSource jetSound;

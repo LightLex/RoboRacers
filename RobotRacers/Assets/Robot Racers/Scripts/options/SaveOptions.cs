@@ -6,11 +6,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
 public class SaveOptions : MonoBehaviour {
+
+	//Inicializando varialbes de los controles
 	InputField leftControl;
 	InputField rightControl;
 	InputField upControl;
 	InputField downControl;
 
+	//Funcion que le los objetos del juego y los guarda en archivo
 	public void save() {
 		Toggle sound = GameObject.Find ("ToggleSonidos").GetComponent<Toggle> ();
 
@@ -32,6 +35,7 @@ public class SaveOptions : MonoBehaviour {
 		print ("Se han guardado la opciones");
 	}
 
+	//Fucnion que incializa los objetos del juego y eschucha sus cambios
 	void Awake () {
 		leftControl = GameObject.Find ("configControlLeft").GetComponent<InputField> ();
 		rightControl = GameObject.Find ("configControlRight").GetComponent<InputField> ();
@@ -45,6 +49,7 @@ public class SaveOptions : MonoBehaviour {
 		downControl.onValueChange.AddListener( delegate { ToUpperCase(downControl); } );
 	}
 
+	//Funcion para estableser los controles en Mayuscula
 	void ToUpperCase(InputField field) {
 		string text = field.text;
 		if(text != field.text.ToUpper())
