@@ -3,12 +3,19 @@ using System.Collections;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.UI;
 
 public class Controller : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		UserGameStatus ugstatus = getUserGameStatus ();
+		Button btnContinue = GameObject.Find("Continue").GetComponent<Button>();
+		if (ugstatus.gameSaved) {
+			btnContinue.enabled = true;
+		} else {
+			btnContinue.enabled = false;
+		}
 	}
 
 	public static void setUserGameStatus(UserGameStatus gameStatus) {
@@ -26,13 +33,14 @@ public class Controller : MonoBehaviour {
 			file.Close ();
 			return gameStatus;
 		} else {
-			return null;
+			return new UserGameStatus();
 		}
 	}
 }
 
 [Serializable]
 public class UserGameStatus{
+	public bool gameSaved = false;
 	public int botId;
 	public string botName;
 	public int botFuerza;

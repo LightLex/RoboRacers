@@ -39,12 +39,6 @@ public class LoadOptions : MonoBehaviour {
 		downControl.text = dc;
 
 		sound.isOn = ss;
-
-
-		/*leftControl.text = PlayerPrefs.GetString("controlLeft", "A");
-		rightControl.text = PlayerPrefs.GetString("controlRight", "D");
-		upControl.text = PlayerPrefs.GetString("controlUp", "W");
-		downControl.text = PlayerPrefs.GetString("controlDown", "S");*/
 	}
 }
 
