@@ -17,5 +17,6 @@ public class LoadLevel : MonoBehaviour {
 	public void newGame() {
 		// Reset the user game status.
 		Controller.resetGameStatus ();
+		Application.LoadLevel (1);
 	}
 }
